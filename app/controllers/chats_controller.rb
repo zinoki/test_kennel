@@ -3,6 +3,10 @@ class ChatsController < ApplicationController
     @chats = Chat.all
   end
 
+  def show
+    @chat = Chat.find(params[:id])
+  end
+
   def new
     @chat = Chat.new
   end
@@ -26,9 +30,6 @@ class ChatsController < ApplicationController
 # need a show action to show the saved chat after redirecting
 
 
-  def show
-    @chat = Chat.find(params[:id])
-  end
 
   def update
     @chat = Chat.find(params[:id])
@@ -38,6 +39,12 @@ class ChatsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @chat = Chat.find(params[:id])
+    @chat.destroy
+    redirect_to chats_path
   end
 
   private

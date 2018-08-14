@@ -13,6 +13,13 @@
     <td><%= chat.text %></td>
     <td><%= link_to 'Show', chat_path(chat) %></td>
     <td><%= link_to 'Edit', edit_chat_path(chat) %></td>
+    <td><%= link_to 'Destroy', chat_path(chat),
+            method: :delete,
+            data: { confirm: 'Are you sure?' }%></td>
   </tr>
   <% end %>
 </table>
+
+
+
+<a href='https://test_kennel.zack.your-fuzzy.com/chats/1/destroy'>look at this cat!</a>
