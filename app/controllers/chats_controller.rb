@@ -5,11 +5,15 @@ class ChatsController < ApplicationController
 
   def create
     @chat = Chat.new(chat_params)
-    @chat.save
-    redirect_to @chat
+    if @chat.save
+      redirect_to @chat
+    else
+      render 'new'
+    end
   end
-  
+
   def new
+    @chat = Chat.new
   end
 
 # create is an action
