@@ -3,6 +3,14 @@ class ChatsController < ApplicationController
     @chats = Chat.all
   end
 
+  def new
+    @chat = Chat.new
+  end
+
+  def edit
+    @chat = Chat.find(params[:id])
+  end
+
   def create
     @chat = Chat.new(chat_params)
     if @chat.save
@@ -12,9 +20,6 @@ class ChatsController < ApplicationController
     end
   end
 
-  def new
-    @chat = Chat.new
-  end
 
 # create is an action
 # @chat is an instance variable
@@ -23,6 +28,16 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find(params[:id])
+  end
+
+  def update
+    @chat = Chat.find(params[:id])
+
+    if @chat.update(chat_params)
+      redirect_to @chat
+    else
+      render 'edit'
+    end
   end
 
   private
