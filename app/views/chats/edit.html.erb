@@ -1,31 +1,5 @@
 <h1>Edit Chat</h1>
-<%= form_with(model: @chat, local: true) do |form| %>
-  <% if @chat.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@chat.errors.count, "error") %>
-        prohibited this chat from being saved
-      </h2>
-      <ul>
-        <% @chat.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+<%= render 'form' %>
 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-<% link_to 'Go Back', chats_path %>
+<%= link_to 'Back', chats_path %>
