@@ -1,9 +1,10 @@
-<h1>Chats</h1>
+<h1>Users</h1>
 <%= link_to 'New Chat', new_chat_path %>
 <table>
   <tr>
     <th>Sender</th>
-    <th>Message</th>
+    <th>UserID</th>
+    <th>Last Message Sent</th>
     <th></th>
   </tr>
 
@@ -11,6 +12,8 @@
   <tr>
     <td><%= chat.title %></td>
     <td><%= chat.text %></td>
+    <td></td>
+    <td></td>
     <td><%= link_to 'Show', chat_path(chat) %></td>
     <td><%= link_to 'Edit', edit_chat_path(chat) %></td>
     <td><%= link_to 'Destroy', chat_path(chat),
